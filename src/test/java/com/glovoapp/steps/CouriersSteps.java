@@ -10,10 +10,8 @@ public class CouriersSteps extends BaseSteps {
     public void iAmOnTheRegistrationPage() {
         driver.get("https://couriers.glovoapp.com/by/");
     }
+
     @When("I insert registration user data")
     public void iInsertRegistrationUserData(){
-
     }
-
-
 }

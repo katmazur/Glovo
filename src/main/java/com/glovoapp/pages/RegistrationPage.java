@@ -1,9 +1,10 @@
 package com.glovoapp.pages;
 
+import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import com.github.javafaker;
 
 public class RegistrationPage {
 
@@ -31,12 +32,14 @@ public class RegistrationPage {
     @FindBy(xpath = "//button/span")
     private WebElement buttonNext;
 
-    public void insertUserData(){
+    public void insertUserData(String cityName){
         Faker faker = new Faker();
-        inputName.sendKeys();
+        inputName.sendKeys(faker.name().fullName());
+        inputEmail.sendKeys(faker.internet().emailAddress());
+        cityDropdown.click();
+        WebElement cityFromList = driver.findElement(By.xpath("//*[contains(text(), '" + cityName + "' )]"));
+        cityFromList.click();
     }
-
-
 }
 
 
