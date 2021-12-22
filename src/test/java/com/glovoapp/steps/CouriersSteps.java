@@ -19,6 +19,7 @@ public class CouriersSteps {
     @Given("I am on the Registration page")
     public void iAmOnTheRegistrationPage() {
         registrationPage.openURL();
+        registrationPage.getCookies();
     }
 
     @When("I insert registration user data")

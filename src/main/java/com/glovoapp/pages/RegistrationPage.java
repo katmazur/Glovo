@@ -42,6 +42,9 @@ public class RegistrationPage extends Page {
     @FindBy(xpath = "//button[@type=\"submit\"]")
     private WebElement continueButton;
 
+    @FindBy (xpath = "//*[@id=\"onetrust-accept-btn-handler\"]")
+    private WebElement cookiesButton;
+
 
     public void insertUserData(String cityName, String countryName) {
         By cityLocator = generateXpath(cityName);
@@ -52,7 +55,7 @@ public class RegistrationPage extends Page {
         waitAndClick(cityLocator);
         phoneCodeDropdown.click();
         waitAndClick(countryCodeLocator);
-        phoneNumber.sendKeys(faker.phoneNumber().subscriberNumber(11));
+        phoneNumber.sendKeys("17563269463");
     }
 
     public void clickRegistration() {
@@ -60,6 +63,9 @@ public class RegistrationPage extends Page {
     }
     public void openURL(){
         driver.get(REG_URL);
+    }
+    public void getCookies (){
+        wait.until(ExpectedConditions.elementToBeClickable(cookiesButton)).click();
     }
 }
 
